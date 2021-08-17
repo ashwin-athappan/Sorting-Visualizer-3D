@@ -1,5 +1,5 @@
 import {swap} from './helpers';
-
+ 
 const bs = (array, position, arraySteps, colorSteps) => {
 	let colorKey = colorSteps[colorSteps.length - 1].slice();
 

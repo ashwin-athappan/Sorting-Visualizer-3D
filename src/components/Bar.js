@@ -4,14 +4,15 @@ import './Bar.css';
 function Bar({ index, length, color, changeArray }) {
 	const [len, setLen] = useState(length);
 
-    useEffect(() => {
-        setLen(length);
-    }, [length]);
+	useEffect(() => {
+		setLen(length);
+	}, [length]);
 
 	const colors = [
 		['rgba(61, 90, 241, 0.5)', 'rgba(61, 90, 241, 0.2)'],
 		['rgba(255, 48, 79, 1)', 'rgba(255, 48, 79, 0.5)'],
 		['rgba(131, 232, 90, 0.5)', 'rgba(131, 232, 90, 0.2)'],
+		['rgba(235, 123, 19, 0.5)', 'rgba(235, 123, 19, 0.2)']
 	];
 
 	// const barStyle = {
@@ -64,15 +65,15 @@ function Bar({ index, length, color, changeArray }) {
 		}
 	};
 
-    const increment = (e) => {
-        setLen(len + 1);
-        changeArray(index, len);
-    }
+	const increment = (e) => {
+		setLen(len + 1);
+		changeArray(index, len);
+	};
 
-    const decrement = (e) => {
-        setLen(len - 1);
-        changeArray(index, len);
-    }
+	const decrement = (e) => {
+		setLen(len - 1);
+		changeArray(index, len);
+	};
 
 	return (
 		<>
@@ -113,10 +114,18 @@ function Bar({ index, length, color, changeArray }) {
 					></div>
 				</div>
 				<div className='quantity-nav'>
-					<div className='quantity-button quantity-up' style={quantity} onClick={increment}>
+					<div
+						className='quantity-button quantity-up'
+						style={quantity}
+						onClick={increment}
+					>
 						+
 					</div>
-					<div className='quantity-button quantity-down' style={quantity} onClick={decrement}>
+					<div
+						className='quantity-button quantity-down'
+						style={quantity}
+						onClick={decrement}
+					>
 						-
 					</div>
 				</div>
