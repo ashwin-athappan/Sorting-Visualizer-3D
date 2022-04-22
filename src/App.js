@@ -10,6 +10,7 @@ import Backward from '@material-ui/icons/SkipPreviousRounded';
 import RotateLeft from '@material-ui/icons/RotateLeft';
 
 import Bar from './components/Bar';
+import Form from './components/Form';
 //CSS
 import './App.css';
 
@@ -153,6 +154,13 @@ class App extends Component {
 		});
 	};
 
+	changeSpeed = (e) => {
+		this.clearTimeouts();
+		this.setState({
+			delay: parseInt(e.target.value),
+		})
+	}
+
 	render() {
 		let bars = this.state.array.map((value, index) => (
 			<Bar
@@ -168,7 +176,10 @@ class App extends Component {
 
 		if (this.state.arraySteps.length === this.state.currentStep) {
 			playButton = (
-				<button className='controller' onClick={this.generateRandomArray}>
+				<button
+					className='controller'
+					onClick={this.generateRandomArray}
+				>
 					<RotateLeft />
 				</button>
 			);
@@ -187,7 +198,10 @@ class App extends Component {
 				</div>
 				<div className='control-pannel'>
 					<div className='control-buttons'>
-						<button className='controller' onClick={this.previousStep}>
+						<button
+							className='controller'
+							onClick={this.previousStep}
+						>
 							<Backward />
 						</button>
 						{playButton}
@@ -196,7 +210,15 @@ class App extends Component {
 						</button>
 					</div>
 				</div>
-				<div className='pannel'></div>
+				<div className='pannel'>
+					<Form
+						formLabel='Speed'
+						values={[500, 400, 300, 200, 100]}
+						currentValue={this.state.delay}
+						lables={['1x', '2x', '3x', '4x', '5x']}
+						onChange={this.changeSpeed}
+					/>
+				</div>
 			</div>
 		);
 	}
