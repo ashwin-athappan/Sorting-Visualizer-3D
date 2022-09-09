@@ -2,4 +2,4 @@
 
 ## GOTO BRANCH AND SELECT CODE
 
-```checkout code```
+  checkout code
